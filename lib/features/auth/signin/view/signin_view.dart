@@ -129,7 +129,9 @@ class SigninView extends StatelessWidget {
                 borderColor: Colors.white,
                 textColor: Colors.white,
                 text: "SIgnup", 
-              onTap: (){},
+              onTap: (){
+                Get.offAllNamed('/registerScreen');
+              },
               )  
           ],
         ),
