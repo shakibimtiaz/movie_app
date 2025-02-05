@@ -89,7 +89,9 @@ class SigninView extends StatelessWidget {
                 buttonColor: AppColors.primaryColor,
                 textColor: Colors.black,
               text: "Signin", 
-              onTap: (){},
+              onTap: (){
+                Get.offAllNamed('/bottomNavbarScreen'); 
+              },
               ),
               SizedBox(
                 height: 30,
