@@ -5,6 +5,7 @@ import 'package:movie_app/core/style/global_textstyle.dart';
 
 import '../../../core/const/app_colors.dart';
 
+import '../../home/view/home_view.dart';
 import '../controller/bottom_navbar_controller.dart';
 
 class BottomNavbar extends StatelessWidget {
@@ -13,7 +14,7 @@ class BottomNavbar extends StatelessWidget {
   final BottomNavbarController controller = Get.put(BottomNavbarController());
 
   final List<Widget> pages = [
-    Center(child: Text("Home", style: globalTextStyle(color: Colors.white),),),
+    HomeView(),
     Center(child: Text("location", style: globalTextStyle(color: Colors.white),),),
     Center(child: Text("Profile", style: globalTextStyle(color: Colors.white),),),
   ];
