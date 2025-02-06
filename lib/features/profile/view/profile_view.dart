@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:movie_app/core/const/app_colors.dart';
+import 'package:movie_app/core/global_widgets/custom_button_container.dart';
+import 'package:movie_app/features/profile/controller/profile_controller.dart';
+
+class ProfileView extends StatelessWidget {
+  ProfileView({super.key});
+
+  final ProfileController controller = Get.put(ProfileController());
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: CustomButtonContainer(
+          buttonColor: AppColors.primaryColor,
+          textColor: Colors.black,
+          text: "Logout",
+          onTap: () {
+            controller.logout();
+          },
+        ),
+      ),
+    );
+  }
+}
