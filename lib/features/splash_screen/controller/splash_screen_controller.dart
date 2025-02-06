@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +32,15 @@ class SplashController extends GetxController
     });
 
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offNamed('/welcomeScreen');
+      FirebaseAuth.instance.authStateChanges().listen((user) {
+        if (user != null) {
+          // User is logged in, navigate to bottomNavbar screen
+          Get.offNamed('/bottomNavbarScreen');
+        } else {
+          // No user is logged in, navigate to the login screen
+          Get.offNamed('/welcomeScreen');
+        }
+      });
     });
   }
 

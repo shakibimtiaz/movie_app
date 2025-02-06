@@ -13,14 +13,45 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
-        child: CustomButtonContainer(
-          buttonColor: AppColors.primaryColor,
-          textColor: Colors.black,
-          text: "Logout",
-          onTap: () {
-            controller.logout();
-          },
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Obx(
+              () => Text(
+                'Name: ${controller.name.value}',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Obx(
+              () => Text(
+                'Email: ${controller.email.value}',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            CustomButtonContainer(
+              buttonColor: AppColors.primaryColor,
+              textColor: Colors.black,
+              text: "Logout",
+              onTap: () {
+                controller.logout();
+              },
+            ),
+          ],
         ),
       ),
     );
