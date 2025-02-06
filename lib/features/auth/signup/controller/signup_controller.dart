@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,9 @@ class SignupController extends GetxController {
       Get.offAllNamed('/bottomNavbarScreen');
     } catch (e) {
       EasyLoading.showError("Failed to register $e");
-      print("/////////The error is: $e"); 
+      if (kDebugMode) {
+        print("/////////The error is: $e");
+      } 
     } finally {
       EasyLoading.dismiss();
     }

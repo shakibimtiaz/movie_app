@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:movie_app/core/const/splash_image.dart';
 import 'package:movie_app/core/style/global_textstyle.dart';
 import 'package:movie_app/features/location/controller/location_controller.dart';
 
@@ -26,17 +25,20 @@ class LocationView extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: SizedBox(
-        height: double.infinity,
-        width: double.infinity,
-        child: GoogleMap(
-          onMapCreated: controller.onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: controller.initialPosition,
-            zoom: 12,
+      body: Obx(
+        () => SizedBox(
+          height: double.infinity,
+          width: double.infinity,
+          child: GoogleMap(
+            onMapCreated: controller.onMapCreated,
+            initialCameraPosition: CameraPosition(
+              target: controller.initialPosition,
+              zoom: 12,
+            ),
+            myLocationEnabled: true,
+            myLocationButtonEnabled: true,
+            markers: controller.markers.toSet(),
           ),
-          myLocationEnabled: true,
-          myLocationButtonEnabled: true,
         ),
       ),
     );
