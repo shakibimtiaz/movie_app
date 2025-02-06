@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:movie_app/core/style/global_textstyle.dart';
 
-
 import '../../../core/const/app_colors.dart';
 
 import '../../home/view/home_view.dart';
+import '../../location/view/location_view.dart';
 import '../controller/bottom_navbar_controller.dart';
 
 class BottomNavbar extends StatelessWidget {
@@ -15,8 +15,13 @@ class BottomNavbar extends StatelessWidget {
 
   final List<Widget> pages = [
     HomeView(),
-    Center(child: Text("location", style: globalTextStyle(color: Colors.white),),),
-    Center(child: Text("Profile", style: globalTextStyle(color: Colors.white),),),
+    LocationView(),
+    Center(
+      child: Text(
+        "Profile",
+        style: globalTextStyle(color: Colors.white),
+      ),
+    ),
   ];
 
   @override
@@ -30,7 +35,7 @@ class BottomNavbar extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.only(bottom: 20),
           decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha:  0.3),
+            color: Colors.black.withValues(alpha: 0.4),
             borderRadius: BorderRadius.circular(200.0),
           ),
           child: Padding(
@@ -39,7 +44,8 @@ class BottomNavbar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _buildNavItem(icon: Icons.home, label: "Home", index: 0),
-                _buildNavItem(icon: Icons.location_on, label: "Matches", index: 1),
+                _buildNavItem(
+                    icon: Icons.location_on, label: "Location", index: 1),
                 _buildNavItem(icon: Icons.person, label: "Profile", index: 2),
               ],
             ),
