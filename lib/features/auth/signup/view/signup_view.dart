@@ -99,7 +99,9 @@ class SignupView extends StatelessWidget {
                 buttonColor: AppColors.primaryColor,
                 textColor: Colors.black,
               text: "Signup", 
-              onTap: (){},
+              onTap: (){
+                controller.signUp(); 
+              },
               ),
               SizedBox(
                 height: 30,

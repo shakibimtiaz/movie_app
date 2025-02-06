@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:movie_app/core/style/global_textstyle.dart';
 
 import '../../../core/const/app_colors.dart';
 
 import '../../home/view/home_view.dart';
 import '../../location/view/location_view.dart';
+import '../../profile/view/profile_view.dart';
 import '../controller/bottom_navbar_controller.dart';
 
 class BottomNavbar extends StatelessWidget {
@@ -16,12 +16,7 @@ class BottomNavbar extends StatelessWidget {
   final List<Widget> pages = [
     HomeView(),
     LocationView(),
-    Center(
-      child: Text(
-        "Profile",
-        style: globalTextStyle(color: Colors.white),
-      ),
-    ),
+    ProfileView(), 
   ];
 
   @override
