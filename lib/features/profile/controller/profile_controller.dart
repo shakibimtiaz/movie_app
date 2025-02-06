@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +18,7 @@ class ProfileController extends GetxController {
     try {
       User? user = FirebaseAuth.instance.currentUser;
       if (user != null) {
-        // Fetch user data from Firestore
+       
         DocumentSnapshot userDoc = await FirebaseFirestore.instance
             .collection('users')
             .doc(user.uid)
@@ -26,12 +27,16 @@ class ProfileController extends GetxController {
         if (userDoc.exists) {
           name.value = userDoc['name'] ?? 'No Name';
           email.value = userDoc['email'] ?? 'No Email';
-          print("////////The name is ${name.value}");
+          if (kDebugMode) {
+            print("////////The name is ${name.value}");
+          }
         }
       }
     } catch (e) {
       EasyLoading.showError("Error fetching user data: $e");
-      print("The error for fetching data of profile is $e");
+      if (kDebugMode) {
+        print("The error for fetching data of profile is $e");
+      }
     }
   }
 
