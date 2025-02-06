@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:movie_app/core/const/app_colors.dart';
+import 'package:movie_app/core/const/splash_image.dart';
 import 'package:movie_app/core/global_widgets/custom_button_container.dart';
 import 'package:movie_app/features/profile/controller/profile_controller.dart';
 
@@ -13,6 +14,14 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Image.asset(
+          SplashImage.splashImage,
+        width: 150,
+        ),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,

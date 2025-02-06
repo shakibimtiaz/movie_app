@@ -30,7 +30,7 @@ class BottomNavbar extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.only(bottom: 20),
           decoration: BoxDecoration(
-            color: Colors.black.withValues(alpha: 0.4),
+            color: const Color.fromARGB(255, 36, 47, 53),
             borderRadius: BorderRadius.circular(200.0),
           ),
           child: Padding(
